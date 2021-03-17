@@ -2,12 +2,16 @@
 
 namespace ConsoleApp5
 {
+
     class Program
     {
         static void Main(string[] args)
         {
+
             const double Pi = 3.14;
             int i = 0;
+            string Result1;
+            string Result2;
 
             Circle circle1 = new Circle();
             Square square1 = new Square();
@@ -21,7 +25,6 @@ namespace ConsoleApp5
                 string sstring = Console.ReadLine();
 
                 Double.TryParse(rstring, out circle1.r);
-              
                 if (circle1.r != 0)
                 {
                     circle1.ca = Pi * circle1.r * circle1.r;
@@ -53,8 +56,32 @@ namespace ConsoleApp5
 
                     Console.WriteLine("Площадь круга с рандомной стороной {0} равна {1}", Math.Round(circle1.r, 2), Math.Round(circle1.ca, 2));
                     Console.WriteLine("Площадь квадрата с рандомной стороной {0} равна {1}", Math.Round(square1.s, 2), Math.Round(square1.sa, 2));
-
                 }
+
+                if (2 * (circle1.r) > square1.s)
+
+                {
+                    Result1 = "НЕТ";
+                }
+                else if (2 * (circle1.r) <= square1.s)
+                {
+                    Result1 = "ДА";
+                }
+                else Result1 = "Некорректные данные";
+
+                if (2 * (circle1.r) < square1.s * Math.Sqrt(2))
+
+                {
+                    Result2 = "НЕТ";
+                }
+                else if (2 * (circle1.r) >= square1.s * Math.Sqrt(2))
+                {
+                    Result2 = "ДА";
+                }
+                else Result2 = "Некорректные данные";
+
+                Console.WriteLine("Круг умещается в квадрат - {0}", Result1);
+                Console.WriteLine("Квадрат умещается в круг - {0}", Result2);
                 Console.ReadKey();
             }
         }
